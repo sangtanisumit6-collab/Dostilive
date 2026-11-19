@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7c3aed">
+<title>DostiLive — नए दोस्त, नई बातें</title>
+<style>
+:root{--purple:#7c3aed;--pink:#ec4899;--ink:#241b35;--muted:#756b83;--bg:#faf7ff;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#6d28d9,#db2777);color:#fff;padding:24px 18px 34px;border-radius:0 0 28px 28px}
+nav{max-width:980px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:800;letter-spacing:.2px}.logo span{color:#ffe4f1}
+nav a{color:#fff;text-decoration:none;font-weight:650}
+.hero{max-width:980px;margin:32px auto 0}.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px}.hero p{margin:0;max-width:620px;line-height:1.7;color:#f5eaff}
+main{max-width:980px;margin:-18px auto 40px;padding:0 16px}.tabs{display:flex;gap:8px;flex-wrap:wrap;background:#fff;padding:9px;border-radius:16px;box-shadow:0 8px 28px #31105b12}
+.tab{border:0;background:transparent;padding:11px 15px;border-radius:11px;color:var(--muted);font-weight:700;cursor:pointer}.tab.active{background:#f1eaff;color:var(--purple)}
+.panel{background:var(--card);margin-top:18px;padding:22px;border-radius:20px;box-shadow:0 8px 28px #31105b0d}
+h2{margin:0 0 8px;font-size:22px}.sub{color:var(--muted);margin:0 0 18px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.person{border:1px solid #eee7f6;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center}
+.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#ede9fe,#fce7f3);font-size:24px}
+.person strong{display:block}.person small{color:var(--muted)}
+button,.btn{border:0;border-radius:12px;padding:11px 15px;background:var(--purple);color:#fff;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.secondary,button.secondary{background:#f3eafe;color:var(--purple)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+input,textarea{width:100%;border:1px solid #e6dff0;border-radius:12px;padding:13px;font:inherit;margin:7px 0 12px;background:#fff}
+label{font-weight:650;font-size:14px}
+.chatbox{height:220px;overflow:auto;background:#fbf9ff;border:1px solid #eee7f6;border-radius:14px;padding:12px;margin:12px 0}
+.bubble{background:#eee7ff;padding:9px 12px;border-radius:14px;margin:7px 0;max-width:85%;width:fit-content}.bubble.me{background:#fce7f3;margin-left:auto}
+.notice{background:#fff7e6;border:1px solid #f5d99c;color:#79540b;padding:13px 14px;border-radius:13px;line-height:1.55;margin-top:16px;font-size:14px}
+footer{text-align:center;color:var(--muted);padding:24px;font-size:13px}
+.hidden{display:none!important}
+@media(max-width:560px){header{padding:18px 16px 30px}.hero{margin-top:25px}.panel{padding:17px}.tab{padding:10px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <nav><div class="logo">💜 Dosti<span>Live</span></div><a href="#login">Login / Signup</a></nav>
+  <section class="hero">
+    <h1>नए दोस्त बनाइए,<br>दिल से बातें कीजिए।</h1>
+    <p>DostiLive में आपका स्वागत है — दोस्ती, बातचीत और नए कनेक्शन के लिए एक प्यारी-सी जगह।</p>
+  </section>
+</header>
+<main>
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="friends">👥 दोस्त</button>
+    <button class="tab" data-tab="chat">💬 Chat</button>
+    <button class="tab" data-tab="calls">📞 Calls</button>
+    <button class="tab" data-tab="login">👤 Login / Signup</button>
+  </div>
+
+  <section id="friends" class="panel">
+    <h2>आपके नए दोस्त</h2><p class="sub">यह अभी एक शुरुआती डेमो है। नीचे नमूने के तौर पर प्रोफाइल दिखाई गई हैं।</p>
+    <div class="grid">
+      <div class="person"><div class="avatar">😊</div><div><strong>आरव</strong><small>नई दोस्ती के लिए तैयार</small></div></div>
+      <div class="person"><div class="avatar">🌸</div><div><strong>सिया</strong><small>बातचीत पसंद है</small></div></div>
+      <div class="person"><div class="avatar">🎧</div><div><strong>कबीर</strong><small>म्यूज़िक और दोस्ती</small></div></div>
+    </div>
+    <div class="actions"><button onclick="showTab('login')">अपना अकाउंट बनाएँ</button><button class="secondary" onclick="showTab('chat')">Chat देखें</button></div>
+  </section>
+
+  <section id="chat" class="panel hidden">
+    <h2>💬 दोस्ताना Chat</h2><p class="sub">यह इस डेमो में आपके ब्राउज़र के अंदर चलने वाला नमूना चैट है।</p>
+    <div id="messages" class="chatbox"><div class="bubble">DostiLive में आपका स्वागत है! 💜</div></div>
+    <form id="chatForm"><label for="message">अपना संदेश लिखें</label><input id="message" maxlength="300" placeholder="कुछ लिखिए..." required><button type="submit">भेजें</button></form>
+  </section>
+
+  <section id="calls" class="panel hidden">
+    <h2>📞 Voice और Video Call</h2><p class="sub">यहाँ कॉल के बटन का डेमो है। असली कॉल चालू करने के लिए सुरक्षित सर्वर और WebRTC जैसी कॉल सेवा जोड़नी होगी।</p>
+    <div class="grid">
+      <div class="person"><div class="avatar">📞</div><div><strong>Voice Call</strong><small>ऑडियो कॉल सुविधा</small></div></div>
+      <div class="person"><div class="avatar">🎥</div><div><strong>Video Call</strong><small>वीडियो कॉल सुविधा</small></div></div>
+    </div>
+    <div class="actions"><button onclick="alert('यह डेमो बटन है। असली Voice Call के लिए कॉल सर्विस जोड़नी होगी।')">Voice Call</button><button class="secondary" onclick="alert('यह डेमो बटन है। असली Video Call के लिए कॉल सर्विस जोड़नी होगी।')">Video Call</button></div>
+  </section>
+
+  <section id="login" class="panel hidden">
+    <h2>👤 Login / Signup</h2><p class="sub">यह केवल फॉर्म का डेमो है; अभी अकाउंट या पासवर्ड सर्वर पर सेव नहीं होता।</p>
+    <form id="signupForm"><label for="name">आपका नाम</label><input id="name" placeholder="अपना नाम लिखें" required>
+    <label for="email">ईमेल</label><input id="email" type="email" placeholder="name@example.com" required>
+    <label for="password">पासवर्ड</label><input id="password" type="password" minlength="6" placeholder="कम से कम 6 अक्षर" required>
+    <button type="submit">डेमो Signup</button></form>
+    <p id="signupResult" class="sub" aria-live="polite"></p>
+  </section>
+  <div class="notice"><strong>ज़रूरी जानकारी:</strong> यह शुरुआती वेबसाइट डेमो है। GitHub Pages पर इसका डिज़ाइन और डेमो इंटरैक्शन चलेंगे, लेकिन असली Login/Signup, अलग-अलग लोगों के बीच लाइव Chat और Voice/Video Calls के लिए बाद में backend, database और सुरक्षित call service जोड़नी होगी। असली पासवर्ड इस डेमो में कभी न डालें।</div>
+</main>
+<footer>© 2026 DostiLive · दोस्ती की शुरुआत यहीं से 💜</footer>
+<script>
+function showTab(id){
+  document.querySelectorAll('main > section.panel').forEach(s=>s.classList.toggle('hidden',s.id!==id));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+document.getElementById('chatForm').addEventListener('submit',e=>{
+  e.preventDefault();const input=document.getElementById('message');const box=document.getElementById('messages');
+  const msg=document.createElement('div');msg.className='bubble me';msg.textContent=input.value;box.appendChild(msg);input.value='';box.scrollTop=box.scrollHeight;
+});
+document.getElementById('signupForm').addEventListener('submit',e=>{
+  e.preventDefault();document.getElementById('signupResult').textContent='धन्यवाद, '+document.getElementById('name').value+'! यह डेमो फॉर्म है; अभी अकाउंट नहीं बना है।';
+});
+</script>
+</body>
+</html>
